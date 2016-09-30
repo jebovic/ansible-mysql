@@ -1,6 +1,8 @@
 MySQL
 =====
 
+[![Build Status](https://travis-ci.org/jebovic/ansible-mysql.svg?branch=master)](https://travis-ci.org/jebovic/ansible-mysql)
+
 Install and configure MySQL, add default user and default database
 
 Role Variables
