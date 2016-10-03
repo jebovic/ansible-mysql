@@ -1,7 +1,7 @@
 MySQL
 =====
 
-[![Build Status](https://travis-ci.org/jebovic/ansible-mysql.svg?branch=master)](https://travis-ci.org/jebovic/ansible-mysql)
+[![Build Status](https://travis-ci.org/jebovic/ansible-mysql.svg?branch=master)](https://travis-ci.org/jebovic/ansible-mysql) [![Ansible Galaxy](https://img.shields.io/badge/galaxy-jebovic.mysql-blue.svg?style=flat)](https://galaxy.ansible.com/jebovic/mysql)
 
 Install and configure MySQL, add default user and default database
 
