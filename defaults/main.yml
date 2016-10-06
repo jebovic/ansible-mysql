@@ -11,12 +11,14 @@ mysql_bind_address: 127.0.0.1
 mysql_error_log_file: /var/log/mysql/error.log
 
 # Create default database
+default_database_enabled: yes
 default_database_name: default_db
 default_database_encoding: utf8
 default_database_collation: utf8_general_ci
 default_database_state: present
 
 # Create default user
+default_user_enabled: yes
 default_user_name: db_user
 default_user_password: db_user
 default_user_host: localhost

@@ -36,6 +36,7 @@
     encoding:  "{{ default_database_encoding|default('utf8') }}"
     collation: "{{ default_database_collation|default('utf8_general_ci') }}"
     state:     "{{ default_database_state|default(omit) }}"
+  when: default_database_enabled
 
 - name: create mysql users
   mysql_user:
@@ -44,3 +45,4 @@
     host:     "{{ default_user_host|default('localhost') }}"
     priv:     "{{ default_user_priv }}"
     state:    "{{ default_user_state|default(omit) }}"
+  when: default_user_enabled
