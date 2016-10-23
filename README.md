@@ -1,4 +1,4 @@
-MySQL
+yamlMySQL
 =====
 
 [![Build Status](https://travis-ci.org/jebovic/ansible-mysql.svg?branch=master)](https://travis-ci.org/jebovic/ansible-mysql) [![Ansible Galaxy](https://img.shields.io/badge/galaxy-jebovic.mysql-blue.svg?style=flat)](https://galaxy.ansible.com/jebovic/mysql)
@@ -8,7 +8,7 @@ Install and configure MySQL, add default user and default database
 Role Variables
 --------------
 
-```
+```yaml
 # Mysql basic configuration
 mysql_port: 3306
 mysql_user: mysql
@@ -36,11 +36,16 @@ default_user_state: present
 Example Playbook
 ----------------
 
+```yaml
+- hosts: servers
+  roles:
+     - { role: jebovic.mysql }
 ```
-    - hosts: servers
-      roles:
-         - { role: jebovic.mysql }
-```
+
+Tags
+----
+
+* mysql_config : only update config and restart service
 
 License
 -------

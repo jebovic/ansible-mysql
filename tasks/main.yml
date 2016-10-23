@@ -22,6 +22,7 @@
     - my.cnf
   notify:
     - restart mysql
+  tags: mysql_config
 
 - name: service start
   service:
