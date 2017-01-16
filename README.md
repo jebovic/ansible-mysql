@@ -7,6 +7,15 @@ Install and configure MySQL, add default user and default database
 
 This role is a part of my [OPS project](https://github.com/jebovic/ops), follow this link to see it in action. OPS provides a lot of stuff, like a vagrant file for development VMs, playbooks for roles orchestration, inventory files, examples for roles configuration, ansible configuration file, and many more.
 
+Compatibility
+-------------
+
+Tested and approved on :
+
+* Debian jessie (8+)
+* Ubuntu Trusty (14.04 LTS)
+* Ubuntu Xenial (16.04 LTS)
+
 Role Variables
 --------------
 
@@ -22,17 +31,20 @@ mysql_bind_address: 127.0.0.1
 mysql_error_log_file: /var/log/mysql/error.log
 
 # Create default database
+default_database_enabled: yes
 default_database_name: default_db
 default_database_encoding: utf8
 default_database_collation: utf8_general_ci
 default_database_state: present
 
 # Create default user
+default_user_enabled: yes
 default_user_name: db_user
 default_user_password: db_user
 default_user_host: localhost
 default_user_priv: "{{ default_database_name }}.*:ALL"
 default_user_state: present
+
 ```
 
 Example Playbook
@@ -42,6 +54,18 @@ Example Playbook
 - hosts: servers
   roles:
      - { role: jebovic.mysql }
+```
+
+Example : config
+----------------
+
+```yaml
+# Do not create default database
+default_database_enabled: no
+# Do not create default user
+default_user_enabled: no
+#  Bind server ip, not only localhost
+mysql_bind_address: "{{ ansible_host }}"
 ```
 
 Tags
