@@ -2,11 +2,11 @@
 
 - name: install apt packages
   apt:
-    name:  "{{ item }}"
-    state:              latest
+    name: "{{ item }}"
+    state: latest
     install_recommends: no
-    update_cache:       yes
-    cache_valid_time:   86400
+    update_cache: yes
+    cache_valid_time: 86400
   with_items:
     - mysql-server
     - mysql-client
@@ -26,7 +26,7 @@
 
 - name: service start
   service:
-    name:  "{{ item }}"
+    name: "{{ item }}"
     state: started
     enabled: yes
   with_items:
@@ -34,17 +34,17 @@
 
 - name: create mysql databases
   mysql_db:
-    name:      "{{ default_database_name }}"
-    encoding:  "{{ default_database_encoding|default('utf8') }}"
+    name: "{{ default_database_name }}"
+    encoding: "{{ default_database_encoding|default('utf8') }}"
     collation: "{{ default_database_collation|default('utf8_general_ci') }}"
-    state:     "{{ default_database_state|default(omit) }}"
+    state: "{{ default_database_state|default(omit) }}"
   when: default_database_enabled
 
 - name: create mysql users
   mysql_user:
-    name:     "{{ default_user_name }}"
+    name: "{{ default_user_name }}"
     password: "{{ default_user_password|default(omit) }}"
-    host:     "{{ default_user_host|default('localhost') }}"
-    priv:     "{{ default_user_priv }}"
-    state:    "{{ default_user_state|default(omit) }}"
+    host: "{{ default_user_host|default('localhost') }}"
+    priv: "{{ default_user_priv }}"
+    state: "{{ default_user_state|default(omit) }}"
   when: default_user_enabled
